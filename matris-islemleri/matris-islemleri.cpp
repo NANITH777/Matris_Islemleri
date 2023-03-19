@@ -305,3 +305,158 @@ void matrisCikarma()
 		cout << endl;
 	}
 }
+
+
+
+void matrisIzBulma()
+{
+	unsigned int n;
+	cout << " \t\t\t Bir kare matrisi girin\n ";
+	cout << " \t\t\t satir sayisini[0-10] girin:  "; cin >> n;
+
+
+	int secim;
+	cout << " \n\t\tRastegele mi yoksa kendi matris olusturmak mi istiyorsun\n\n";
+	cout << " \t\t 1) Rastegele\n ";
+	cout << " \t\t 2) Bir matris olusturun\n";
+	cin >> secim;
+
+	if (secim == 1)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				matrisa[i][j] = rand() % 11;
+			}
+		}
+		cout << endl;
+
+		cout << setw(5) << "A matrisi: \n";
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				cout << setw(8) << matrisa[i][j];
+			}
+			cout << "\n";
+		}
+	}
+
+	if (secim == 2)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				do
+				{
+					cout << setw(8) << "MatrisA[" << i << "]" << "[" << j << "]:";
+					cin >> matrisa[i][j];
+				} while (matrisa[i][j] > 10);      //  Matrisin elemanlari [0-10] araliginda olmasi lazim
+
+			}
+		}
+		cout << endl;
+		cout << setw(5) << "A matrisi: \n";
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				cout << setw(8) << matrisa[i][j];
+			}
+			cout << "\n";
+		}
+	}
+	cout << endl;
+
+	for (int i = 0; i < n; i++)
+	{
+
+		for (int j = 0; j < n; j++)
+		{
+			if (i == j)
+				iz += matrisa[i][i];
+		}
+		cout << endl;
+	}
+
+	cout << setw(8) << "Matris izi: " << iz;
+}
+
+void matrisTranspozesi()
+{
+	unsigned int m;
+	cout << " \t\t\t Bir kare matrisi girin\n ";
+	cout << " \t\t\t satir sayisini[0-10] girin:  "; cin >> m;
+
+	int secim;
+
+	cout << " \n\t\tRastegele mi yoksa kendi matris olusturmak mi istiyorsun\n\n";
+	cout << " \t\t 1) Rastegele\n ";
+	cout << " \t\t 2) Bir matris olusturun\n";
+	cin >> secim;
+
+	if (secim == 1)
+	{
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				matrisa[i][j] = rand() % 11;
+			}
+		}
+		cout << endl;
+
+		cout << setw(5) << "A matrisi: \n";
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				cout << setw(8) << matrisa[i][j];
+			}
+			cout << "\n";
+		}
+	}
+
+	if (secim == 2)
+	{
+
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				do
+				{
+					cout << setw(8) << "MatrisA[" << i << "]" << "[" << j << "]:";
+					cin >> matrisa[i][j];
+				} while (matrisa[i][j] > 10);      //  Matrisin elemanlari [0-10] araliginda olmasi lazim
+
+			}
+		}
+		cout << endl;
+
+		cout << setw(5) << "A matrisi: \n";
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				cout << setw(8) << matrisa[i][j];
+			}
+			cout << "\n";
+		}
+	}
+
+
+	cout << " \n\n\     Matris Transpozesi:\n\n";
+	for (int i = 0; i < m; i++)
+	{
+
+		for (int j = 0; j < m; j++)
+		{
+			transpomatris[i][j] = matrisa[j][i];
+			cout << setw(8) << transpomatris[i][j];
+		}
+		cout << endl;
+	}
+}
