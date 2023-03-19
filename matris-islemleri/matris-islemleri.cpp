@@ -15,7 +15,7 @@ void matrisCikarma();
 void matrisCarpma();
 void matrisIzBulma();
 void matrisTranspozesi();
-//void matrisTersi();
+void matrisTersi();
 
 int main()
 {
@@ -89,7 +89,7 @@ int main()
 		if (secenek == 6)
 		{
 			cout << "\n\t\t\t MATRIS TERSI BULMA\n\n ";
-			/*matrisTersi();*/
+			matrisTersi();
 		}
 
 		if (secenek == 7)
@@ -111,11 +111,11 @@ int main()
 	return 0;
 }
 
-
 void matrisToplama()
 {
 
-	cout << " \t\t\t satir ve sutun sayisini[0-10] girin:  "; cin >> satir;
+	cout << " \t\t\t satir sayisini[0-10] girin:  "; cin >> satir;
+	cout << " \t\t\t sutun sayisini girin[0-10]:  "; cin >> sutun;
 
 	int secim;
 
@@ -128,7 +128,7 @@ void matrisToplama()
 	{
 		for (int i = 0; i < satir; i++)
 		{
-			for (int j = 0; j < satir; j++)
+			for (int j = 0; j < sutun; j++)
 			{
 				matrisa[i][j] = rand() % 11;
 			}
@@ -138,19 +138,31 @@ void matrisToplama()
 		cout << setw(5) << "A matrisi: \n";
 		for (int i = 0; i < satir; i++)
 		{
-			for (int j = 0; j < satir; j++)
+			for (int j = 0; j < sutun; j++)
 			{
 				cout << setw(8) << matrisa[i][j];
 			}
 			cout << "\n";
 		}
+
+		cout << endl;
+
+		for (int i = 0; i < satir; i++)
+		{
+			for (int j = 0; j < sutun; j++)
+			{
+				matrisb[i][j] = rand() % 11;
+			}
+		}
+		cout << endl;
+
 	}
 
 	if (secim == 2)
 	{
 		for (int i = 0; i < satir; i++)
 		{
-			for (int j = 0; j < satir; j++)
+			for (int j = 0; j < sutun; j++)
 			{
 				do
 				{
@@ -166,29 +178,36 @@ void matrisToplama()
 		for (int i = 0; i < satir; i++)
 		{
 
-			for (int j = 0; j < satir; j++)
+			for (int j = 0; j < sutun; j++)
 			{
 				cout << setw(8) << matrisa[i][j];
 			}
 			cout << endl;
 		}
 
-	}
-	cout << endl;
+		cout << endl;
 
-	for (int i = 0; i < satir; i++)
-	{
-		for (int j = 0; j < satir; j++)
+		for (int i = 0; i < satir; i++)
 		{
-			matrisb[i][j] = rand() % 11;
+			for (int j = 0; j < sutun; j++)
+			{
+				do
+				{
+					cout << setw(8) << "MatrisB[" << i << "]" << "[" << j << "]:";
+					cin >> matrisb[i][j];
+				} while (matrisb[i][j] > 10);      //  Matrisin elemanlari [0-10] araliginda olmasi lazim
+
+			}
 		}
+		cout << endl;
+
 	}
-	cout << endl;
+	
 
 	cout << "     B matrisi: \n\n";
 	for (int i = 0; i < satir; i++)
 	{
-		for (int j = 0; j < satir; j++)
+		for (int j = 0; j < sutun; j++)
 		{
 			cout << setw(8) << matrisb[i][j];
 		}
@@ -199,7 +218,7 @@ void matrisToplama()
 	cout << "\n      sonuc matrisi( MATRIS C);\n\n";
 	for (int i = 0; i < satir; i++)
 	{
-		for (int j = 0; j < satir; j++)
+		for (int j = 0; j < sutun; j++)
 		{
 			matrisc[i][j] = matrisa[i][j] + matrisb[i][j];
 			cout << setw(8) << matrisc[i][j];
@@ -208,10 +227,10 @@ void matrisToplama()
 	}
 }
 
-
 void matrisCikarma()
 {
-	cout << " \t\t\t satir veya sayisini[0-10] girin:  "; cin >> satir;
+	cout << " \t\t\t satir sayisini[0-10] girin:  "; cin >> satir;
+	cout << " \t\t\t sutun sayisini girin[0-10]:  "; cin >> sutun;
 
 	int secim;
 
@@ -224,7 +243,7 @@ void matrisCikarma()
 	{
 		for (int i = 0; i < satir; i++)
 		{
-			for (int j = 0; j < satir; j++)
+			for (int j = 0; j < sutun; j++)
 			{
 				matrisa[i][j] = rand() % 11;
 			}
@@ -234,19 +253,30 @@ void matrisCikarma()
 		cout << setw(5) << "A matrisi: \n";
 		for (int i = 0; i < satir; i++)
 		{
-			for (int j = 0; j < satir; j++)
+			for (int j = 0; j < sutun; j++)
 			{
 				cout << setw(8) << matrisa[i][j];
 			}
 			cout << "\n";
 		}
+
+		cout << endl << endl;
+
+		for (int i = 0; i < satir; i++)
+		{
+			for (int j = 0; j < sutun; j++)
+			{
+				matrisb[i][j] = rand() % 11;
+			}
+		}
+		cout << endl;
 	}
 
 	if (secim == 2)
 	{
 		for (int i = 0; i < satir; i++)
 		{
-			for (int j = 0; j < satir; j++)
+			for (int j = 0; j < sutun; j++)
 			{
 				do
 				{
@@ -262,29 +292,35 @@ void matrisCikarma()
 		for (int i = 0; i < satir; i++)
 		{
 
-			for (int j = 0; j < satir; j++)
+			for (int j = 0; j < sutun; j++)
 			{
 				cout << setw(8) << matrisa[i][j];
 			}
 			cout << endl;
 		}
-	}
 
-	cout << endl;
+		cout << endl;
 
-	for (int i = 0; i < satir; i++)
-	{
-		for (int j = 0; j < satir; j++)
+		for (int i = 0; i < satir; i++)
 		{
-			matrisb[i][j] = rand() % 11;
+			for (int j = 0; j < sutun; j++)
+			{
+				do
+				{
+					cout << setw(8) << "MatrisB[" << i << "]" << "[" << j << "]:";
+					cin >> matrisb[i][j];
+				} while (matrisb[i][j] > 10);      //  Matrisin elemanlari [0-10] araliginda olmasi lazim
+
+			}
 		}
 	}
+
 	cout << endl;
 
 	cout << "      B matrisi: \n\n";
 	for (int i = 0; i < satir; i++)
 	{
-		for (int j = 0; j < satir; j++)
+		for (int j = 0; j < sutun; j++)
 		{
 			cout << setw(8) << matrisb[i][j];
 		}
@@ -295,7 +331,7 @@ void matrisCikarma()
 	cout << "      sonuc matrisi( MATRIS C);\n\n";
 	for (int i = 0; i < satir; i++)
 	{
-		for (int j = 0; j < satir; j++)
+		for (int j = 0; j < sutun; j++)
 		{
 			matrisc[i][j] = matrisa[i][j] - matrisb[i][j];
 			cout << setw(8) << matrisc[i][j];
@@ -565,6 +601,117 @@ void matrisTranspozesi()
 		{
 			transpomatris[i][j] = matrisa[j][i];
 			cout << setw(8) << transpomatris[i][j];
+		}
+		cout << endl;
+	}
+}
+
+
+void matrisTersi()
+{
+	unsigned int m;
+
+	cout << " \t\t\t Bir kare matrisi girin\n ";
+	cout << " \t\t\t satir sayisini[0-10] girin:  "; cin >> m;
+
+	int secim;
+
+	cout << " \n\t\tRastegele mi yoksa kendi matris olusturmak mi istiyorsun\n\n";
+	cout << " \t\t 1) Rastegele\n ";
+	cout << " \t\t 2) Bir matris olusturun\n";
+	cin >> secim;
+
+	if (secim == 1)
+	{
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				matrisa[i][j] = rand() % 11;
+			}
+		}
+		cout << endl;
+
+		cout << setw(5) << "A matrisi: \n";
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				cout << setw(8) << matrisa[i][j];
+			}
+			cout << "\n";
+		}
+	}
+
+	if (secim == 2)
+	{
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				do
+				{
+					cout << setw(8) << "MatrisA[" << i << "]" << "[" << j << "]:";
+					cin >> matrisa[i][j];
+				} while (matrisa[i][j] > 10);      //  Matrisin elemanlari [0-10] araliginda olmasi lazim
+
+			}
+		}
+
+		cout << "\n\n    A matrisi:\n\n";
+		for (int i = 0; i < m; i++)
+		{
+
+			for (int j = 0; j < m; j++)
+			{
+				cout << setw(8) << matrisa[i][j];
+			}
+			cout << endl;
+		}
+	}
+
+	cout << endl;
+
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (i == j)
+				tersmatris[i][j] = 1;
+			else
+				tersmatris[i][j] = 0;
+		}
+	}
+
+	float d, k;
+	for (int i = 0; i < m; i++)
+	{
+		d = matrisa[i][i];
+		for (int j = 0; j < m; j++)
+		{
+			matrisa[i][j] = matrisa[i][j] / d;
+			tersmatris[i][j] = tersmatris[i][j] / d;
+		}
+		for (int x = 0; x < m; x++)
+		{
+			if (x != i)
+			{
+				k = matrisa[x][i];
+				for (int j = 0; j < m; j++)
+				{
+					matrisa[x][j] = matrisa[x][j] - (matrisa[i][j] * k);
+					tersmatris[x][j] = tersmatris[x][j] - (tersmatris[i][j] * k);
+				}
+			}
+		}
+	}
+
+	cout << " \n\n        Matrisin tersi: \n\n ";
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			cout << setw(10) << tersmatris[i][j];
 		}
 		cout << endl;
 	}
